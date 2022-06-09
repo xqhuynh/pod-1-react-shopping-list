@@ -12,8 +12,8 @@ CREATE TABLE cart (
 	
 -- Test data
 INSERT INTO cart (item, quantity, unit)
-	VALUES ('banana', '2', 'bunch'),
-    VALUES ('apples', '5', 'lbs');
- 	
+VALUES ('banana', '2', 'bunch'), 
+('apples', '5', 'lbs');
+
 -- Show table
 SELECT * FROM cart;
