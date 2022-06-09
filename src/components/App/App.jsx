@@ -51,7 +51,7 @@ const addNewItem = (newItemInput) =>{
        method: 'DELETE', 
        url: '/cart'
    })
-   .then((response)=>{
+   .then(() =>{
    fetchCart();
 })
 .catch(err =>{
@@ -60,19 +60,19 @@ const addNewItem = (newItemInput) =>{
  };
 
 
-const clearItem = (item) =>{  
-console.log('in delete', item)
-axios({
-     method: 'DELETE', 
-    url: `'/cart'/${item}`
-})
-.then((response)=>{
-    fetchCart();
- })
- .catch(err =>{
-     console.log('error in delete', err);
- })
-};
+// const clearItem = (item) =>{  
+// console.log('in delete', item)
+// axios({
+//      method: 'DELETE', 
+//     url: `'/cart'/${item}`
+// })
+// .then((response)=>{
+//     fetchCart();
+//  })
+//  .catch(err =>{
+//      console.log('error in delete', err);
+//  })
+// };
 
  const resetPurchase = () => {
      console.log('in reset')
