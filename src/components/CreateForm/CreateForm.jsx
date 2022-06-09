@@ -16,16 +16,14 @@ const CreateForm = ({ addNewItem} ) => {
             quantity: newQuantity,
             unit: newUnit,
         };
+
+        // Clear input fields
         setNewItem('');
         setNewQuantity('');
         setNewUnit('');
-    // Pass new item to GET item
-    addNewItem(newItemsInput)
-
+        // Pass new item to GET item
+        addNewItem(newItemsInput)
     }
-
-    // Clear input fields
-    // 
 
     return (
         // On submit to handle 'save' click event

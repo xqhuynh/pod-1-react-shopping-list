@@ -1,48 +1,52 @@
-import React from 'react';
-import axios from 'axios'
-import { useState, useEffect  } from 'react';
-import Header from '../Header/Header.jsx'
-import './App.css';
+import React from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import Header from "../Header/Header.jsx";
+import "./App.css";
 
 // Import components
-import CreateForm from '../CreateForm/CreateForm.jsx';
+
+import CreateForm from "../CreateForm/CreateForm.jsx";
+import ItemsList from "../ItemsList/ItemsList.jsx";
 import ClearReset from '../ClearReset/ClearReset.jsx';
 
 
-
-
 function App() {
-    let [cartItem, setCartItem] = useState([]);
-   
-useEffect(()=> {
+  let [cartItem, setCartItem] = useState([]);
+
+  useEffect(() => {
     fetchCart();
-}, [])
+  }, []);
 
-const fetchCart = () =>{
+  // GET route
+  const fetchCart = () => {
     axios({
-        method: 'GET', 
-        url: '/cart'
+      method: "GET",
+      url: "/cart",
     })
-    .then((response)=>{
-        setCartItem(response.data)
-    })
-    .catch(err =>{
-        console.log('error in GET', err);
-    })
-};
+      .then((response) => {
+        setCartItem(response.data);
+        console.log('Items are: ', response.data);
+      })
+      .catch((err) => {
+        console.log("error in GET", err);
+      });
+  };
 
-const addNewItem = (newItemInput) =>{
-    axios.post('/cart', newItemInput)
-    .then(response => {
-        console.log('In POST /cart', response);
+  // POST route
+  const addNewItem = (newItemInput) => {
+    axios
+      .post("/cart", newItemInput)
+      .then((response) => {
+        console.log("In POST /cart", response);
         fetchCart();
-    })
-    .catch(err =>{
-        alert('err adding item');
-        console.log('err');
-    });
-}
 
+      })
+      .catch((err) => {
+        alert("err adding item");
+        console.log("err");
+      });
+  };
 
  const deleteItems = () =>{
    
@@ -93,9 +97,11 @@ axios({
              <ClearReset deleteItems={deleteItems} resetPurchase={resetPurchase} />
             <main>
                 <p>Under Construction...</p>
+                <ItemsList cartItem={cartItem} />
             </main>
         </div>
     );
     }
+
 
 export default App;
