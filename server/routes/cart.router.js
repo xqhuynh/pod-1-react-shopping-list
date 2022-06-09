@@ -39,13 +39,14 @@ router.post("/", (req, res) => {
     });
 });
 
+
 router.put("/:id", (req, res) => {
   const id = req.body.id;
   const sqlQuery = `UPDATE cart
         SET purchased = true
         WHERE id = $2
         ;`;
-  const sqlParams = [!purchased, id];
+  const sqlParams = [id];
   pool
     .query(sqlQuery, sqlParams)
     .then(() => {
