@@ -14,7 +14,7 @@ const ItemsList = ({ cartItem,  }) => {
   const displayButtons = (cartItem) =>{
     let buttons;
 
-    if(!cartItem){
+    if(cartItem){
       buttons = <h4>Purchased</h4>
     } else {
       buttons =
@@ -29,7 +29,6 @@ const ItemsList = ({ cartItem,  }) => {
 
   return (
     <>
-      <h3>Cart List Testing</h3>
       <div className="boxContainer">
         {cartItem.map((groceryItem) => (
           <div className="box" key={groceryItem.id}>
@@ -39,6 +38,7 @@ const ItemsList = ({ cartItem,  }) => {
               {displayButtons(groceryItem.purchase)}
             </div>
           </div>
+        //   add arrow function for submit
         ))}
       </div>
     </>
@@ -46,3 +46,4 @@ const ItemsList = ({ cartItem,  }) => {
 };
 
 export default ItemsList;
+
