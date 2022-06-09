@@ -32,12 +32,12 @@ const fetchCart = () =>{
 
 const addNewItem = (newItemInput) =>{
     axios.post('/cart', newItemInput)
-    .then(response=>{
+    .then(response => {
+        console.log('In POST /cart', response);
         fetchCart();
-
     })
     .catch(err =>{
-        alert('err adding guest');
+        alert('err adding item');
         console.log('err');
     });
 }
@@ -61,7 +61,8 @@ const addNewItem = (newItemInput) =>{
     return (
         <div className="App">
             <Header />
-            <CreateForm />
+            <CreateForm 
+             addNewItem={addNewItem}/>
             <main>
                 <p>Under Construction...</p>
             </main>
