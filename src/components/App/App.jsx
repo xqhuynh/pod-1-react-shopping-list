@@ -78,6 +78,18 @@ axios({
  })
 };
 
+const purchaseItem = (id) => {
+    console.log("in purchase item", id)
+    axios.put(`/cart/${id}`).then((req, res)=>{
+        console.log('item purchased!')
+        res.sendStatus(200)
+    }).catch((err)=>{
+        console.log("error in purchaseItem", err)
+        res.sendStatus(500)
+    })
+
+}
+
  const resetPurchase = () => {
      console.log('in reset')
      axios.post('/reset').then(()=>{

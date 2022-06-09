@@ -67,9 +67,11 @@ router.delete("/:id", (req, res) => {
     .query(sqlQuery, sqlParams)
     .then(() => {
       console.log("DELETE item success");
+      res.sendStatus(200);
     })
     .catch((err) => {
       console.log("ERROR in DELETE by Id", err);
+      res.sendStatus(500);
     });
 });
 
