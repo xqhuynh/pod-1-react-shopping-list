@@ -39,8 +39,7 @@ router.post("/", (req, res) => {
     });
 });
 
-router.post("/:id", (req, res) => {
-  const purchased = req.body.purchased;
+router.put("/:id", (req, res) => {
   const id = req.body.id;
   const sqlQuery = `UPDATE cart
         SET purchased = true
