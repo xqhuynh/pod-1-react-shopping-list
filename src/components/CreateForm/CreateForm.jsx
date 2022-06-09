@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './CreateForm.css';
 
 const CreateForm = ({ addNewItem} ) => {
     // Create useState for inputs: item, quantity, unit
@@ -29,10 +30,17 @@ const CreateForm = ({ addNewItem} ) => {
         // On submit to handle 'save' click event
         <form onSubmit={onSaveSubmit}>
             <h2>Add an Item</h2> 
-            <input onChange={event => setNewItem(event.target.value)} type="text" placeholder='item' />
-            <input onChange={event=> setNewQuantity(event.target.value)} type="number" placeholder='quantity' />
-            <input onChange={event => setNewUnit(event.target.value)} type="text" placeholder='unit' />
-            <button type="submit">Save</button>
+            <div>
+                <h4 className='addItemText'>Item:</h4>
+                <input className='addItem' onChange={event => setNewItem(event.target.value)} type="text" placeholder='item' />
+            </div>
+            <div>
+                <h4 className='quantityInputText'>Quantity:</h4>
+                <input className='quantityInput' onChange={event=> setNewQuantity(event.target.value)} type="number" placeholder='quantity' />
+                <h4 className='unitInputText'>Unit:</h4>
+                <input className='unitInput' onChange={event => setNewUnit(event.target.value)} type="text" placeholder='unit' />
+            </div>
+            <button className='saveBtn' type="submit">Save</button>
         </form>
     )
 }

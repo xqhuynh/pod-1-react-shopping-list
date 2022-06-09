@@ -1,0 +1,46 @@
+form {
+    padding-left: 25px;
+}
+
+.addItem, .addItemText {
+    display: inline-block;
+    margin: 5px;
+}
+
+.addItem {
+    width: 305px;
+    height: 20px;
+}
+
+.quantityInput, .quantityInputText {
+    display: inline-block;
+    margin: 3px;
+}
+
+.quantityInput {
+    width: 65px;
+    height: 20px;
+}
+
+.unitInput, .unitInputText {
+    display: inline-block;
+    margin: 3px;
+}
+
+.unitInput {
+    width: 155px;
+    height: 20px;
+}
+
+.saveBtn {
+    margin: 5px;
+    padding: 3px;
+    width: 55px;
+}
+
+.resetBtn, .clearBtn {
+    display: inline-block;
+    margin: 5px;
+    padding: 3px;
+    width: 45px;
+}
