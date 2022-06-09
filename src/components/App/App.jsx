@@ -6,6 +6,7 @@ import './App.css';
 
 // Import components
 import CreateForm from '../CreateForm/CreateForm.jsx';
+import ClearReset from '../ClearReset/ClearReset.jsx';
 
 
 
@@ -41,12 +42,12 @@ const addNewItem = (newItemInput) =>{
         console.log('err');
     });
 }
- const deleteItem = () =>{
-   const deleteItemID  = $(this).closest('tr')  
-   console.log('in delete', deleteItemID)
+ const deleteItems = () =>{
+   
+   console.log('in delete')
    axios({
        method: 'DELETE', 
-       url: `'/cart'/${deleteItemID}`
+       url: '/cart'
 
    })
    .then((response)=>{
@@ -57,12 +58,23 @@ const addNewItem = (newItemInput) =>{
 })
  };
 
+ const resetPurchase = () => {
+     console.log('in reset')
+     axios.post('/reset').then(()=>{
+         console.log('reset success')
+         fetchCart()
+     }).catch((err)=>{
+         console.log('error in resetPurchase', err)
+     })
+ }
+
 
     return (
         <div className="App">
             <Header />
             <CreateForm 
              addNewItem={addNewItem}/>
+             <ClearReset deleteItems={deleteItems} resetPurchase={resetPurchase} />
             <main>
                 <p>Under Construction...</p>
             </main>
