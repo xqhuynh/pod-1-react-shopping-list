@@ -30,8 +30,8 @@ const fetchCart = () =>{
     })
 };
 
-const addToCart = (newItem) =>{
-    axios.post('/cart', newItem)
+const addNewItem = (newItemInput) =>{
+    axios.post('/cart', newItemInput)
     .then(response=>{
         fetchCart();
 
@@ -56,18 +56,6 @@ const addToCart = (newItem) =>{
     console.log('error in delete', err);
 })
  };
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     return (
