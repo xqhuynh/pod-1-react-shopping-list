@@ -19,11 +19,11 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   const item = req.body.item;
-  const quantity = req.body.item;
+  const quantity = req.body.quantity;
   const unit = req.body.unit;
 
   const sqlQuery = `INSERT INTO cart (item, quantity, unit)
-  VALUES ($1, $2, $3)`;
+  VALUES ($1, $2, $3);`;
 
   const sqlParams = [item, quantity, unit];
 
@@ -45,7 +45,7 @@ router.post("/:id", (req, res) => {
   const sqlQuery = `UPDATE cart
         SET purchased = $1
         WHERE id = $2
-        `;
+        ;`;
   const sqlParams = [!purchased, id];
   pool
     .query(sqlQuery, sqlParams)
