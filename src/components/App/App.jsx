@@ -64,21 +64,6 @@ function App() {
  };
 
 
-  // DELETE route
-  const deleteItem = () => {
-    console.log("in delete");
-    axios({
-      method: "DELETE",
-      url: "/cart",
-    })
-      .then((response) => {
-        fetchCart();
-      })
-      .catch((err) => {
-        console.log("error in delete", err);
-      });
-  };
-
 const clearItem = (item) =>{  
 console.log('in delete', item)
 axios({
