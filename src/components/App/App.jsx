@@ -108,7 +108,6 @@ const purchaseItem = (id) => {
              addNewItem={addNewItem}/>
              <ClearReset deleteItems={deleteItems} resetPurchase={resetPurchase} />
             <main>
-                <p>Under Construction...</p>
                 <ItemsList cartItem={cartItem} />
             </main>
         </div>
