@@ -42,12 +42,9 @@ const addNewItem = (newItemInput) =>{
     });
 }
  const deleteItem = () =>{
-   const deleteItemID  = $(this).closest('tr')  
-   console.log('in delete', deleteItemID)
    axios({
        method: 'DELETE', 
-       url: `'/cart'/${deleteItemID}`
-
+       url: '/cart'
    })
    .then((response)=>{
    fetchCart();
@@ -57,8 +54,23 @@ const addNewItem = (newItemInput) =>{
 })
  };
 
+const clearItem = (item) =>{  
+console.log('in delete', item)
+axios({
+     method: 'DELETE', 
+    url: `'/cart'/${item}`
+})
+.then((response)=>{
+    fetchCart();
+ })
+ .catch(err =>{
+     console.log('error in delete', err);
+ })
+};
 
-    return (
+
+
+ return (
         <div className="App">
             <Header />
             <CreateForm 
