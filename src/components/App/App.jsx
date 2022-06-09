@@ -42,13 +42,14 @@ const addNewItem = (newItemInput) =>{
         console.log('err');
     });
 }
+
+
  const deleteItems = () =>{
    
    console.log('in delete')
    axios({
        method: 'DELETE', 
        url: '/cart'
-
    })
    .then((response)=>{
    fetchCart();
@@ -57,6 +58,21 @@ const addNewItem = (newItemInput) =>{
     console.log('error in delete', err);
 })
  };
+
+
+const clearItem = (item) =>{  
+console.log('in delete', item)
+axios({
+     method: 'DELETE', 
+    url: `'/cart'/${item}`
+})
+.then((response)=>{
+    fetchCart();
+ })
+ .catch(err =>{
+     console.log('error in delete', err);
+ })
+};
 
  const resetPurchase = () => {
      console.log('in reset')
@@ -69,7 +85,7 @@ const addNewItem = (newItemInput) =>{
  }
 
 
-    return (
+ return (
         <div className="App">
             <Header />
             <CreateForm 

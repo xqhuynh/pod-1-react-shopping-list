@@ -48,7 +48,7 @@ router.post("/:id", (req, res) => {
         ;`;
   const sqlParams = [!purchased, id];
   pool
-    .query(sqlQuery, sqlParams)
+  .query(sqlQuery, sqlParams)
     .then(() => {
       res.sendStatus(200);
       console.log("UPDATE Success");
@@ -86,5 +86,11 @@ router.delete("/", (req, res) => {
       console.log("ERROR in DELETE route", err);
     });
 });
+
+
+
+
+
+
 
 module.exports = router;
