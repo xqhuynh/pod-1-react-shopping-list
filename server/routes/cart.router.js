@@ -39,6 +39,26 @@ router.post("/", (req, res) => {
     });
 });
 
+router.post("/:id", (req, res) => {
+  const purchased = req.body.purchased;
+  const id = req.body.id;
+  const sqlQuery = `UPDATE cart
+        SET purchased = $1
+        WHERE id = $2
+        `;
+  const sqlParams = [!purchased, id];
+  pool
+    .query(sqlQuery, sqlParams)
+    .then(() => {
+      res.sendStatus(200);
+      console.log("UPDATE Success");
+    })
+    .catch((err) => {
+      res.sendStatus(500);
+      console.log("ERROR in UPDATE POST", err);
+    });
+});
+
 router.delete("/", (req, res) => {
   const sqlQuery = `DELETE * FROM cart`;
   pool
