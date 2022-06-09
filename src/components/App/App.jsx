@@ -30,8 +30,8 @@ const fetchCart = () =>{
     })
 };
 
-const add = (newItem) =>{
-    axios.post('/cart', newItem)
+const addNewItem = (newItemInput) =>{
+    axios.post('/cart', newItemInput)
     .then(response=>{
         fetchCart();
 
