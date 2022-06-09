@@ -2,3 +2,28 @@ main {
   width: 90%;
   margin: auto;
 }
+
+.boxContainer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  border: solid 1px black;
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.item {
+  padding-top: 5px;
+  padding-bottom: 25px;
+}
+
+.buyRemove {
+  padding: 5px;
+  margin: 5px;
+}
