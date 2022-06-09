@@ -27,3 +27,7 @@ main {
   padding: 5px;
   margin: 5px;
 }
+
+.clearResetBtns {
+  padding-left: 25px;
+}
