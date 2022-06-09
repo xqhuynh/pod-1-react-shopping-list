@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const cartRouter = require("./routes/cart.router.js");
 const pool = require("../server/modules/pool");
+
 const PORT = process.env.PORT || 5000;
 
 /** ---------- MIDDLEWARE ---------- **/
@@ -11,11 +12,12 @@ app.use(express.static("build"));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 app.use("/cart", cartRouter);
-app.put("/reset", (req, res) => {
+// app.use("/reset", resetRouter);
+app.post("/reset", (req, res) => {
   const sqlQuery = `
-        UPDATE cart
-        SET purchased = false;
-  `;
+            UPDATE cart
+            SET purchased = false;
+      `;
   pool
     .query(sqlQuery)
     .then(() => {
