@@ -48,7 +48,7 @@ router.post("/:id", (req, res) => {
         ;`;
   const sqlParams = [!purchased, id];
   pool
-    .query(sqlQuery, sqlParams)
+  .query(sqlQuery, sqlParams)
     .then(() => {
       res.sendStatus(200);
       console.log("UPDATE Success");
@@ -59,8 +59,23 @@ router.post("/:id", (req, res) => {
     });
 });
 
+router.delete("/:id", (req, res) => {
+  const sqlQuery = `
+      DELETE FROM cart
+      WHERE id = $1`;
+  const sqlParams = [req.body.id];
+  pool
+    .query(sqlQuery, sqlParams)
+    .then(() => {
+      console.log("DELETE item success");
+    })
+    .catch((err) => {
+      console.log("ERROR in DELETE by Id", err);
+    });
+});
+
 router.delete("/", (req, res) => {
-  const sqlQuery = `DELETE * FROM cart`;
+  const sqlQuery = `DELETE FROM cart`;
   pool
     .query(sqlQuery)
     .then(() => {
@@ -71,5 +86,11 @@ router.delete("/", (req, res) => {
       console.log("ERROR in DELETE route", err);
     });
 });
+
+
+
+
+
+
 
 module.exports = router;
