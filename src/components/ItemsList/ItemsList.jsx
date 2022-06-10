@@ -25,10 +25,18 @@ const ItemsList = ({ cartItem, purchaseItem, clearItem }) => {
             <h4>Purchased</h4>
           ) : (
             <div>
-              <button id={groceryItem.id} onClick={handleBuy}>
-                Purchased
+              <button
+                className="buyRemove buttons"
+                id={groceryItem.id}
+                onClick={handleBuy}
+              >
+                Buy
               </button>
-              <button id={groceryItem.id} onClick={handleRemove}>
+              <button
+                className="buyRemove buttons"
+                id={groceryItem.id}
+                onClick={handleRemove}
+              >
                 Remove
               </button>
             </div>
