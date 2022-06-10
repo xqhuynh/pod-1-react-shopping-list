@@ -23,13 +23,12 @@ const ItemsList = ({ cartItem, purchaseItem, clearItem }) => {
           <div className="box" key={groceryItem.id}>
             <div className="item">{groceryItem.item}</div>
             <div className="item">{groceryItem.quantity} {groceryItem.unit}</div>
-            {groceryItem.purchased ? <h4>Purchased</h4> : <div>
+            {groceryItem.purchased ? <h4>Purchased</h4> : 
+             <div>
                 <button id={groceryItem.id} onClick={handleBuy}>Purchased</button>
                 <button id={groceryItem.id} onClick={handleRemove}>Remove</button>
             </div>  
-            }
           </div>
-        //   add arrow function for submit
         ))
         }
     </div>
