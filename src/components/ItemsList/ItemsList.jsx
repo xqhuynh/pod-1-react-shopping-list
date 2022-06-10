@@ -31,8 +31,8 @@ const ItemsList = ({ cartItem, purchaseItem, clearItem }) => {
                 </div>
                 
               } */}
-            <button id={groceryItem.id} onClick={handleBuy}>Purchased</button>
-            <button id={groceryItem.id} onClick={handleRemove}>Remove</button>
+            <button className="buyRemove buttons" id={groceryItem.id} onClick={handleBuy}>Purchased</button>
+            <button className="buyRemove buttons" id={groceryItem.id} onClick={handleRemove}>Remove</button>
             </div>
           </div>
         //   add arrow function for submit
