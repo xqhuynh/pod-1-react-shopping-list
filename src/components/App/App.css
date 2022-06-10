@@ -14,7 +14,7 @@ main {
 .box {
   width: 150px;
   height: 150px;
-  border: solid 1px black;
+  border: solid 1px rgb(182, 186, 196);
   text-align: center;
   padding: 20px;
   border-radius: 5px;
@@ -36,4 +36,25 @@ main {
 
 .clearButton {
   margin-right: 15px;
+}
+
+.buttons {
+  background-color: rgb(84, 97, 174);
+  border: rgb(84, 97, 174);
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.buttons:hover {
+  background-color: rgb(180, 190, 243);
+}
+
+.banner-header {
+  background-color: rgb(84, 97, 174);
+  color: white;
+}
+
+input {
+  border: solid 1px rgb(182, 186, 196);
 }
