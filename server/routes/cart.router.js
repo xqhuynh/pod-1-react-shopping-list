@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require("../modules/pool.js");
 
 // TODO - Add routes here...
-
+// GET route to get db 
 router.get("/", (req, res) => {
   const sqlQuery = `SELECT * FROM cart ORDER BY item ASC`;
   pool
@@ -17,6 +17,7 @@ router.get("/", (req, res) => {
     });
 });
 
+// POST route to add new item to db
 router.post("/", (req, res) => {
   const item = req.body.item;
   const quantity = req.body.quantity;
@@ -39,7 +40,7 @@ router.post("/", (req, res) => {
     });
 });
 
-
+// PUT route to update purchased boolean to true
 router.put("/:id", (req, res) => {
   const id = req.body.id;
   const sqlQuery = `UPDATE cart
@@ -59,6 +60,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
+// DELETE route to delete item from db
 router.delete("/:id", (req, res) => {
   const sqlQuery = `
       DELETE FROM cart
@@ -76,6 +78,7 @@ router.delete("/:id", (req, res) => {
     });
 });
 
+// DELETE route to delete all items from cart
 router.delete("/", (req, res) => {
   const sqlQuery = `DELETE FROM cart`;
   pool

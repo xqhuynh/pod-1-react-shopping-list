@@ -1,4 +1,4 @@
-const ItemsList = ({ cartItem,  }) => {
+const ItemsList = ({ cartItem }) => {
   // Buy button event handler
 //   const buyButtonHandler = () => {
     const handleBuy = (evt) => {
@@ -25,7 +25,6 @@ const ItemsList = ({ cartItem,  }) => {
       }
       return buttons
   }
-
 
   return (
     <>
