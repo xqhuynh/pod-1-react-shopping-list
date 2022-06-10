@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require("../modules/pool.js");
 
 // TODO - Add routes here...
-// GET route to get db 
+// GET route to get db
 router.get("/", (req, res) => {
   const sqlQuery = `SELECT * FROM cart ORDER BY item ASC`;
   pool
@@ -40,14 +40,12 @@ router.post("/", (req, res) => {
     });
 });
 
-
 router.post("/:id", (req, res) => {
-  const id = req.body.id;
+  const id = req.params.id;
 
   const sqlQuery = `UPDATE cart
         SET purchased = true
-        WHERE id = $1
-        ;`;
+        WHERE id = $1;`;
   const sqlParams = [id];
   pool
     .query(sqlQuery, sqlParams)

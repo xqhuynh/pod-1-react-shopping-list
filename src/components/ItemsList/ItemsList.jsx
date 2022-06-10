@@ -24,6 +24,13 @@ const ItemsList = ({ cartItem, purchaseItem, clearItem }) => {
             <div className="item">{groceryItem.item}</div>
             <div className="item">{groceryItem.quantity} {groceryItem.unit}</div>
             <div>
+              {/* if(!groceryItem.purchased){
+                <div>
+                  <button id={groceryItem.id} onClick={handleBuy}>Purchased</button>
+                <button id={groceryItem.id} onClick={handleRemove}>Remove</button>
+                </div>
+                
+              } */}
             <button id={groceryItem.id} onClick={handleBuy}>Purchased</button>
             <button id={groceryItem.id} onClick={handleRemove}>Remove</button>
             </div>
