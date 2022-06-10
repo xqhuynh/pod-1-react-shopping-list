@@ -17,30 +17,22 @@ const ItemsList = ({ cartItem, purchaseItem, clearItem }) => {
 
 
   return (
-    <>
+
       <div className="boxContainer">
         {cartItem.map((groceryItem) => (
           <div className="box" key={groceryItem.id}>
             <div className="item">{groceryItem.item}</div>
             <div className="item">{groceryItem.quantity} {groceryItem.unit}</div>
-            <div>
-              {/* if(!groceryItem.purchased){
-                <div>
-                  <button id={groceryItem.id} onClick={handleBuy}>Purchased</button>
+            {groceryItem.purchased ? <h4>Purchased</h4> : 
+             <div>
+                <button id={groceryItem.id} onClick={handleBuy}>Purchased</button>
                 <button id={groceryItem.id} onClick={handleRemove}>Remove</button>
-                </div>
-                
-              } */}
-            <button className="buyRemove buttons" id={groceryItem.id} onClick={handleBuy}>Purchased</button>
-            <button className="buyRemove buttons" id={groceryItem.id} onClick={handleRemove}>Remove</button>
-            </div>
+            </div>  
           </div>
-        //   add arrow function for submit
-        ))}
-      </div>
-    </>
-  );
-};
-
+        ))
+        }
+    </div>
+  )
+}
 export default ItemsList;
 
