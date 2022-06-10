@@ -16,8 +16,8 @@ const ClearReset = ({deleteItems, resetPurchase}) => {
 
         <div className="clearResetBtns">
         <h2>Shopping List</h2>
-        <button onClick={handleDelete}>Clear</button>
-        <button onClick={handleReset}>Reset</button>
+        <button className="clearButton buttons" onClick={handleDelete}>Clear</button>
+        <button className="buttons" onClick={handleReset}>Reset</button>
         </div>
     )
 }

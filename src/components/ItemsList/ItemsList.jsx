@@ -1,3 +1,4 @@
+
 const ItemsList = ({ cartItem, purchaseItem, clearItem }) => {
   // Buy button event handler
 //   const buyButtonHandler = () => {
@@ -13,12 +14,10 @@ const ItemsList = ({ cartItem, purchaseItem, clearItem }) => {
       console.log('remove')
     }
 //   }
-  
 
 
   return (
     <>
-      <h3>Cart List Testing</h3>
       <div className="boxContainer">
         {cartItem.map((groceryItem) => (
           <div className="box" key={groceryItem.id}>
@@ -29,6 +28,7 @@ const ItemsList = ({ cartItem, purchaseItem, clearItem }) => {
             <button id={groceryItem.id} onClick={handleRemove}>Remove</button>
             </div>
           </div>
+        //   add arrow function for submit
         ))}
       </div>
     </>
@@ -36,3 +36,4 @@ const ItemsList = ({ cartItem, purchaseItem, clearItem }) => {
 };
 
 export default ItemsList;
+

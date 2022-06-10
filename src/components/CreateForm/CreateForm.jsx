@@ -18,12 +18,12 @@ const CreateForm = ({ addNewItem} ) => {
             unit: newUnit,
         };
 
-        // Clear input fields
+        // Pass new item to GET item
+        addNewItem(newItemsInput)
+          // Clear input fields
         setNewItem('');
         setNewQuantity('');
         setNewUnit('');
-        // Pass new item to GET item
-        addNewItem(newItemsInput)
     }
 
     return (
@@ -32,15 +32,15 @@ const CreateForm = ({ addNewItem} ) => {
             <h2>Add an Item</h2> 
             <div>
                 <h4 className='addItemText'>Item:</h4>
-                <input className='addItem' onChange={event => setNewItem(event.target.value)} type="text" placeholder='item' />
+                <input className='addItem' onChange={event => setNewItem(event.target.value)} type="text" />
             </div>
             <div>
                 <h4 className='quantityInputText'>Quantity:</h4>
-                <input className='quantityInput' onChange={event=> setNewQuantity(event.target.value)} type="number" placeholder='quantity' />
+                <input className='quantityInput' onChange={event=> setNewQuantity(event.target.value)} type="number" />
                 <h4 className='unitInputText'>Unit:</h4>
-                <input className='unitInput' onChange={event => setNewUnit(event.target.value)} type="text" placeholder='unit' />
+                <input className='unitInput' onChange={event => setNewUnit(event.target.value)} type="text" />
             </div>
-            <button className='saveBtn' type="submit">Save</button>
+            <button className='saveBtn buttons' type="submit">Save</button>
         </form>
     )
 }
