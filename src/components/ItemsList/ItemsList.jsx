@@ -19,8 +19,8 @@ const ItemsList = ({ cartItem }) => {
     } else {
       buttons =
         <>
-        <button className="buyRemove" onClick={handleBuy}>Buy</button>
-        <button className="buyRemove" onClick={handleRemove}>Remove</button>
+        <button className="buyRemove buttons" onClick={handleBuy}>Buy</button>
+        <button className="buyRemove buttons" onClick={handleRemove}>Remove</button>
         </>  
       }
       return buttons

@@ -40,7 +40,7 @@ const CreateForm = ({ addNewItem} ) => {
                 <h4 className='unitInputText'>Unit:</h4>
                 <input className='unitInput' onChange={event => setNewUnit(event.target.value)} type="text" />
             </div>
-            <button className='saveBtn' type="submit">Save</button>
+            <button className='saveBtn buttons' type="submit">Save</button>
         </form>
     )
 }
