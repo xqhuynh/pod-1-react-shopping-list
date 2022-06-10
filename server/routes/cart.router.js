@@ -39,12 +39,11 @@ router.post("/", (req, res) => {
     });
 });
 
-
-router.put("/:id", (req, res) => {
-  const id = req.body.id;
+router.post("/:id", (req, res) => {
+  const id = req.params.id;
   const sqlQuery = `UPDATE cart
         SET purchased = true
-        WHERE id = $2
+        WHERE id = $1
         ;`;
   const sqlParams = [id];
   pool
@@ -62,8 +61,8 @@ router.put("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   const sqlQuery = `
       DELETE FROM cart
-      WHERE id = $1`;
-  const sqlParams = [req.body.id];
+      WHERE id = ($1)`;
+  const sqlParams = [req.params.id];
   pool
     .query(sqlQuery, sqlParams)
     .then(() => {

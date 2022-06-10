@@ -1,30 +1,19 @@
-const ItemsList = ({ cartItem,  }) => {
+const ItemsList = ({ cartItem, purchaseItem, clearItem }) => {
   // Buy button event handler
 //   const buyButtonHandler = () => {
     const handleBuy = (evt) => {
       evt.preventDefault()
+      purchaseItem(evt.target.id)
       console.log('buy')
     }
 
     const handleRemove = (evt) => {
       evt.preventDefault()
+      clearItem(evt.target.id)
       console.log('remove')
     }
 //   }
-  const displayButtons = (cartItem) =>{
-    let buttons;
-
-    if(!cartItem){
-      buttons = <h4>Purchased</h4>
-    } else {
-      buttons =
-        <>
-        <button className="buyRemove" onClick={handleBuy}>Buy</button>
-        <button className="buyRemove" onClick={handleRemove}>Remove</button>
-        </>  
-      }
-      return buttons
-  }
+  
 
 
   return (
@@ -36,7 +25,8 @@ const ItemsList = ({ cartItem,  }) => {
             <div className="item">{groceryItem.item}</div>
             <div className="item">{groceryItem.quantity} {groceryItem.unit}</div>
             <div>
-              {displayButtons(groceryItem.purchase)}
+            <button id={groceryItem.id} onClick={handleBuy}>Purchased</button>
+            <button id={groceryItem.id} onClick={handleRemove}>Remove</button>
             </div>
           </div>
         ))}

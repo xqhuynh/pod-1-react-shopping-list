@@ -68,9 +68,9 @@ const clearItem = (item) =>{
 console.log('in delete', item)
 axios({
      method: 'DELETE', 
-    url: `'/cart'/${item}`
+    url: `/cart/${item}`
 })
-.then((response)=>{
+.then(()=>{
     fetchCart();
  })
  .catch(err =>{
@@ -80,12 +80,11 @@ axios({
 
 const purchaseItem = (id) => {
     console.log("in purchase item", id)
-    axios.put(`/cart/${id}`).then((req, res)=>{
+    axios.post(`/cart/${id}`).then(()=>{
         console.log('item purchased!')
-        res.sendStatus(200)
+        fetchCart()
     }).catch((err)=>{
         console.log("error in purchaseItem", err)
-        res.sendStatus(500)
     })
 
 }
@@ -109,7 +108,7 @@ const purchaseItem = (id) => {
              <ClearReset deleteItems={deleteItems} resetPurchase={resetPurchase} />
             <main>
                 <p>Under Construction...</p>
-                <ItemsList cartItem={cartItem} />
+                <ItemsList cartItem={cartItem} purchaseItem={purchaseItem} clearItem={clearItem}/>
             </main>
         </div>
     );
